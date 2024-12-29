@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      type: pythonapp3
+  template:
+    metadata:
+      labels:
+        type: pythonapp3
+    spec:
+      containers:
+      - name: container1
+        image: docman404/pythonapp3
+        ports:
+        - containerPort: 7001
+          protocol: TCP
